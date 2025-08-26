@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crimson Echo| Official Band Website</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+        
+        body {
+            font-family: 'Raleway', sans-serif;
+            color: #f8f8f8;
+            background: #0a0a0a;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        section {
+            padding: 100px 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(10, 10, 10, 0.9);
+            padding: 20px 0;
+            transition: all 0.3s ease;
+        }
+        
+        nav.scrolled {
+            padding: 15px 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #f8f8f8;
+            text-decoration: none;
+        }
+        
+        .logo span {
+            color: #ff055d;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            color: #f8f8f8;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: #ff055d;
+        }
+        
+        /* Hero Section */
+        #home {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1470225620780-dba8ba36b745?ixlib=rb-4.0.3') no-repeat center center/cover;
+            text-align: center;
+            position: relative;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero-content h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+        }
+        
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: #ff055d;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .btn:hover {
+            background: #fff;
+            color: #ff055d;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* About Section */
+        #about {
+            background: #131313;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            display: inline-block;
+            padding-bottom: 10px;
+            position: relative;
+        }
+        
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            width: 60%;
+            height: 3px;
+            background: #ff055d;
+            bottom: 0;
+            left: 20%;
+        }
+        
+        .band-story {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .band-image {
+            flex: 1;
+            min-width: 300px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+        }
+        
+        .band-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+        
+        .band-image:hover img {
+            transform: scale(1.05);
+        }
+        
+        .band-bio {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .band-bio p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+        
+        /* Music Section */
+        #music {
+            background: #0a0a0a;
+        }
+        
+        .albums {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+        
+        .album {
+            width: 280px;
+            background: #1c1c1c;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .album:hover {
+            transform: translateY(-10px);
+        }
+        
+        .album-img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+        }
+        
+        .album-info {
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .album-info h3 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+        }
+        
+        .album-info p {
+            color: #aaa;
+            margin-bottom: 15px;
+        }
+        
+        /* Tour Dates */
+        #tour {
+            background: #131313;
+        }
+        
+        .tour-dates {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .date {
+            background: #1c1c1c;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: transform 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .date:hover {
+            transform: translateX(10px);
+        }
+        
+        /* Gallery Section */
+        #gallery {
+            background: #0a0a0a;
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+        
+        .gallery-item {
+            height: 250px;
+            border-radius: 8px;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .gallery-item::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .gallery-item:hover::after {
+            opacity: 1;
+        }
+        
+        /* Contact Section */
+        #contact {
+            background: #131313;
+        }
+        
+        .contact-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            justify-content: center;
+        }
+        
+        .contact-form {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 15px;
+            background: #1c1c1c;
+            border: none;
+            border-radius: 5px;
+            color: #f8f8f8;
+            font-size: 1rem;
+        }
+        
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        /* Footer */
+        footer {
+            background: #080808;
+            padding: 40px 0;
+            text-align: center;
+        }
+        
+        .social-links {
+            margin-bottom: 20px;
+        }
+        
+        .social-links a {
+            color: #f8f8f8;
+            font-size: 1.5rem;
+            margin: 0 15px;
+            transition: color 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            color: #ff055d;
+        }
+        
+        /* Media Queries */
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .date {
+                flex-direction: column;
+                text-align: center;
+                gap: 15px;
+            }
+            
+            .band-story {
+                flex-direction: column;
+            }
+        }
+        
+        /* Animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .animate {
+            animation: fadeIn 1s ease forwards;
+        }
+        
+        .delay-1 { animation-delay: 0.2s; }
+        .delay-2 { animation-delay: 0.4s; }
+        .delay-3 { animation-delay: 0.6s; }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="container nav-container">
+            <a href="#home" class="logo">Crimson Echo<span>.</span></a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">Story</a></li>
+                <li><a href="#music">Music</a></li>
+                <li><a href="#tour">Tour</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home">
+        <div class="container hero-content">
+            <h1 class="animate">Crimson Echo</h1>
+            <p class="animate delay-1">We are a modern rock band creating music that resonates with the soul. Our new album "Echoes" is out now!</p>
+            <a href="#music" class="btn animate delay-2">Listen Now</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Story</h2>
+            </div>
+            <div class="band-story">
+                <div class="band-image animate">
+                    <img src="https://images.unsplash.com/photo-1511735111819-9a3f7709049c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Band Performance">
+                </div>
+                <div class="band-bio">
+                    <p class="animate delay-1">Formed in 2018,Crimson Echo emerged from the vibrant music scene of Seattle with a unique sound that blends alternative rock with melodic undertones. Our journey began in small clubs and has taken us to stages across the country.</p>
+                    <p class="animate delay-2">With two studio albums and multiple tours under our belt, we continue to evolve our sound while staying true to our roots. Our music is a reflection of life's contrasts - the quiet and the loud, the gentle and the intense.</p>
+                    <p class="animate delay-3">We believe in the power of music to connect people and create moments of pure emotion. Each performance is a unique experience, and we invite you to be part of our story.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Music Section -->
+    <section id="music">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Music</h2>
+            </div>
+            <div class="albums">
+                <div class="album animate">
+                    <img src="https://images.unsplash.com/photo-1571330735066-03aaa9429d89?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Album 1" class="album-img">
+                    <div class="album-info">
+                        <h3>Echoes</h3>
+                        <p>2023 • Debut Album</p>
+                        <a href="#" class="btn">Stream Now</a>
+                    </div>
+                </div>
+                <div class="album animate delay-1">
+                    <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Album 2" class="album-img">
+                    <div class="album-info">
+                        <h3>Midnight Dreams</h3>
+                        <p>2022 • EP</p>
+                        <a href="#" class="btn">Stream Now</a>
+                    </div>
+                </div>
+                <div class="album animate delay-2">
+                    <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Album 3" class="album-img">
+                    <div class="album-info">
+                        <h3>First Light</h3>
+                        <p>2021 • EP</p>
+                        <a href="#" class="btn">Stream Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tour Dates -->
+    <section id="tour">
+        <div class="container">
+            <div class="section-title">
+                <h2>Tour Dates</h2>
+            </div>
+            <div class="tour-dates">
+                <div class="date animate">
+                    <div class="date-info">
+                        <h3>June 15, 2023</h3>
+                        <p>Madison Square Garden, New York</p>
+                    </div>
+                    <a href="#" class="btn">Buy Tickets</a>
+                </div>
+                <div class="date animate delay-1">
+                    <div class="date-info">
+                        <h3>June 22, 2023</h3>
+                        <p>Wembley Arena, London</p>
+                    </div>
+                    <a href="#" class="btn">Buy Tickets</a>
+                </div>
+                <div class="date animate delay-2">
+                    <div class="date-info">
+                        <h3>July 5, 2023</h3>
+                        <p>Accor Arena, Paris</p>
+                    </div>
+                    <a href="#" class="btn">Buy Tickets</a>
+                </div>
+                <div class="date animate delay-3">
+                    <div class="date-info">
+                        <h3>July 18, 2023</h3>
+                        <p>Forum, Los Angeles</p>
+                    </div>
+                    <a href="#" class="btn">Buy Tickets</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery">
+        <div class="container">
+            <div class="section-title">
+                <h2>Gallery</h2>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item animate">
+                    <img src="https://images.unsplash.com/photo-1506157786151-b8491531f063?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Concert 1">
+                </div>
+                <div class="gallery-item animate delay-1">
+                    <img src="https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Concert 2">
+                </div>
+                <div class="gallery-item animate delay-2">
+                    <img src="https://images.unsplash.com/photo-1429962714451-bb934ecdc4ec?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Concert 3">
+                </div>
+                <div class="gallery-item animate delay-3">
+                    <img src="https://images.unsplash.com/photo-1475721027785-f74eccf877e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Studio Session">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Get In Touch</h2>
+            </div>
+            <div class="contact-content">
+                <form class="contact-form">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" class="form-control" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea class="form-control" placeholder="Your Message" required></textarea>
+                    </div>
+                    <button type="submit" class="btn">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                <a href="#"><i class="fab fa-spotify"></i></a>
+                <a href="#"><i class="fab fa-apple"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+            <p>&copy; 2023 Harmony. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Animation on scroll
+        function checkScroll() {
+            const elements = document.querySelectorAll('.animate');
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.3;
+                
+                if (elementPosition < screenPosition) {
+                    element.style.opacity = 1;
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        }
+        
+        // Initialize animations
+        window.addEventListener('load', function() {
+            document.querySelectorAll('.animate').forEach(element => {
+                element.style.opacity = 0;
+                element.style.transform = 'translateY(20px)';
+                element.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+            });
+            
+            checkScroll();
+        });
+        
+        window.addEventListener('scroll', checkScroll);
+    </script>
+</body>
+</html>
