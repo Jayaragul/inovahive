@@ -37,7 +37,7 @@
   "logo": "https://www.innovahive.com/logo.png",
   "contactPoint": {
     "@type": "ContactPoint",
-    "telephone": "+91-94428-02796",
+    "telephone": "‪+91-94428-02796‬",
     "contactType": "customer service",
     "email": "jayaragul.in@gmail.com",
     "areaServed": "IN",
@@ -69,7 +69,7 @@
   "image": "https://www.innovahive.com/images/office.jpg",
   "@id": "https://www.innovahive.com",
   "url": "https://www.innovahive.com",
-  "telephone": "+91-94428-02796",
+  "telephone": "‪+91-94428-02796‬",
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "123 Tech Street",
@@ -106,10 +106,21 @@
 </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Seraphic Touch | Luxury Wellness Experience</title>
+    <title>Innova Hive | Digital Solutions & AI Innovation</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --hive-primary: #FF9800;
+            --hive-secondary: #FF5722;
+            --hive-dark: #1A1A1A;
+            --minds-primary: #2196F3;
+            --minds-secondary: #9C27B0;
+            --light: #FFFFFF;
+            --gray: #F5F5F5;
+            --dark-gray: #333333;
+        }
+        
         * {
             margin: 0;
             padding: 0;
@@ -117,206 +128,305 @@
         }
         
         body {
-            font-family: 'Montserrat', sans-serif;
-            color: #4a4a4a;
+            font-family: 'Poppins', sans-serif;
+            color: var(--dark-gray);
             line-height: 1.6;
             overflow-x: hidden;
-            background: linear-gradient(to bottom, #f8f5f0, #e6f0ea);
         }
         
-        h1, h2, h3, h4 {
-            font-family: 'Playfair Display', serif;
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
             font-weight: 700;
-            color: #3a6c65;
+            line-height: 1.3;
         }
         
         .container {
-            width: 90%;
+            width: 100%;
             max-width: 1200px;
             margin: 0 auto;
+            padding: 0 20px;
         }
         
-        /* Header & Navigation */
+        /* Header & Navigation - Mobile Optimized */
         header {
             position: fixed;
+            top: 0;
+            left: 0;
             width: 100%;
-            z-index: 1000;
-            background: rgba(255, 255, 255, 0.95);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-        }
-        
-        header.scrolled {
-            padding: 10px 0;
             background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            padding: 12px 0;
         }
         
         .header-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 0;
         }
         
         .logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 28px;
-            font-weight: 700;
-            color: #3a6c65;
-            text-decoration: none;
+            display: flex;
+            align-items: center;
         }
         
-        .logo span {
-            color: #c8a97e;
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--hive-dark);
         }
         
-        nav ul {
+        .logo-text span {
+            color: var(--hive-primary);
+        }
+        
+        /* Mobile Menu */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+        }
+        
+        .menu-toggle span {
+            width: 100%;
+            height: 3px;
+            background: var(--hive-dark);
+            margin: 2px 0;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-links {
             display: flex;
             list-style: none;
         }
         
-        nav ul li {
-            margin-left: 30px;
+        .nav-links li {
+            margin: 0 12px;
         }
         
-        nav ul li a {
+        .nav-links a {
             text-decoration: none;
-            color: #4a4a4a;
+            color: var(--dark-gray);
             font-weight: 500;
-            font-size: 16px;
-            transition: color 0.3s ease;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            position: relative;
         }
         
-        nav ul li a:hover {
-            color: #c8a97e;
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--hive-primary);
+            transition: width 0.3s ease;
         }
         
-        .menu-toggle {
-            display: none;
-            font-size: 24px;
-            cursor: pointer;
+        .nav-links a:hover:after {
+            width: 100%;
         }
         
-        /* Hero Section */
+        .nav-links a:hover {
+            color: var(--hive-primary);
+        }
+        
+        .cta-button {
+            background: var(--hive-primary);
+            color: white;
+            padding: 8px 18px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+        
+        .cta-button:hover {
+            background: var(--hive-secondary);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(255, 87, 34, 0.3);
+        }
+        
+        /* Hero Section - Mobile Optimized */
         .hero {
-            height: 100vh;
-            background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('SPA2.jpg') no-repeat center center/cover;
+            padding: 130px 0 80px;
+            background: linear-gradient(135deg, rgba(255, 152, 0, 0.1) 0%, rgba(33, 150, 243, 0.1) 100%);
+            position: relative;
+            overflow: hidden;
+            min-height: 100vh;
             display: flex;
             align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: white;
-            padding: 0 20px;
         }
         
         .hero-content {
+            text-align: center;
             max-width: 800px;
+            margin: 0 auto;
         }
         
-        .hero h1 {
-            font-size: 4rem;
-            color: white;
-            margin-bottom: 20px;
-            letter-spacing: 2px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        .hero-title {
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+            color: var(--hive-dark);
         }
         
-        .hero p {
-            font-size: 1.2rem;
+        .hero-subtitle {
+            font-size: 1.1rem;
             margin-bottom: 30px;
-            font-weight: 300;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+            color: var(--dark-gray);
+            font-weight: 400;
         }
         
-        .btn {
-            display: inline-block;
-            background: #c8a97e;
-            color: white;
-            padding: 12px 30px;
-            border: none;
-            border-radius: 5px;
-            font-size: 16px;
-            font-weight: 500;
-            cursor: pointer;
-            transition: all 0.3s ease;
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .hero-btn {
+            padding: 12px 25px;
+            border-radius: 50px;
             text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
         }
         
-        .btn:hover {
-            background: #b8976a;
-            transform: translateY(-2px);
+        .hero-btn i {
+            margin-right: 8px;
         }
         
-        /* Section Styling */
-        section {
-            padding: 100px 0;
+        .btn-hive {
+            background: var(--hive-primary);
+            color: white;
+        }
+        
+        .btn-hive:hover {
+            background: var(--hive-secondary);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 87, 34, 0.3);
+        }
+        
+        .btn-minds {
+            background: var(--minds-primary);
+            color: white;
+        }
+        
+        .btn-minds:hover {
+            background: var(--minds-secondary);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(156, 39, 176, 0.3);
+        }
+        
+        /* About Section - Mobile Optimized */
+        .about {
+            padding: 80px 0;
+            background: white;
         }
         
         .section-title {
             text-align: center;
-            margin-bottom: 60px;
-        }
-        
-        .section-title h2 {
-            font-size: 2.5rem;
+            margin-bottom: 40px;
             position: relative;
-            display: inline-block;
-            padding-bottom: 15px;
+            font-size: 1.8rem;
         }
         
-        .section-title h2::after {
+        .section-title:after {
             content: '';
             position: absolute;
-            bottom: 0;
+            bottom: -12px;
             left: 50%;
             transform: translateX(-50%);
-            width: 80px;
-            height: 3px;
-            background: #c8a97e;
+            width: 60px;
+            height: 4px;
+            background: var(--hive-primary);
+            border-radius: 2px;
         }
         
-        /* About Section */
         .about-content {
             display: flex;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 40px;
+            flex-direction: column;
+            gap: 30px;
         }
         
         .about-text {
             flex: 1;
-            min-width: 300px;
+        }
+        
+        .about-text h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: var(--hive-dark);
+        }
+        
+        .about-text p {
+            margin-bottom: 15px;
+            font-size: 1rem;
         }
         
         .about-image {
             flex: 1;
-            min-width: 300px;
             border-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
         }
         
         .about-image img {
             width: 100%;
             height: auto;
             display: block;
-            transition: transform 0.5s ease;
         }
         
-        .about-image:hover img {
-            transform: scale(1.05);
-        }
-        
-        /* Services Section */
+        /* Services Section - Mobile Optimized */
         .services {
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(10px);
+            padding: 80px 0;
+            background: var(--gray);
+        }
+        
+        .services-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+        
+        .tab-btn {
+            padding: 12px 20px;
+            background: white;
+            border: none;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            margin: 5px;
+        }
+        
+        .tab-btn i {
+            margin-right: 8px;
+        }
+        
+        .tab-btn.active {
+            background: var(--hive-primary);
+            color: white;
         }
         
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+            grid-template-columns: 1fr;
+            gap: 20px;
         }
         
         .service-card {
@@ -324,154 +434,65 @@
             border-radius: 10px;
             overflow: hidden;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: all 0.3s ease;
         }
         
         .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
         }
         
-        .service-image {
-            height: 200px;
-            overflow: hidden;
+        .service-icon {
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
         }
         
-        .service-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
+        .hive-service .service-icon {
+            background: linear-gradient(135deg, var(--hive-primary) 0%, var(--hive-secondary) 100%);
+            color: white;
         }
         
-        .service-card:hover .service-image img {
-            transform: scale(1.1);
+        .minds-service .service-icon {
+            background: linear-gradient(135deg, var(--minds-primary) 0%, var(--minds-secondary) 100%);
+            color: white;
         }
         
         .service-content {
             padding: 20px;
         }
         
-        .service-content h3 {
-            font-size: 1.5rem;
-            margin-bottom: 10px;
-        }
-        
-        .service-content p {
-            margin-bottom: 15px;
-            color: #666;
-        }
-        
-        .price {
-            color: #c8a97e;
-            font-weight: 600;
+        .service-title {
             font-size: 1.2rem;
+            margin-bottom: 12px;
         }
         
-        /* Testimonials */
-        .testimonials-container {
-            max-width: 800px;
-            margin: 0 auto;
-            position: relative;
-        }
-        
-        .testimonial {
+        /* Contact Section - Mobile Optimized */
+        .contact {
+            padding: 80px 0;
             background: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
-            text-align: center;
-            display: none;
         }
         
-        .testimonial.active {
-            display: block;
-        }
-        
-        .testimonial-text {
-            font-style: italic;
-            margin-bottom: 20px;
-            font-size: 1.1rem;
-        }
-        
-        .testimonial-author {
-            font-weight: 600;
-            color: #3a6c65;
-        }
-        
-        .testimonial-nav {
-            display: flex;
-            justify-content: center;
-            margin-top: 20px;
-        }
-        
-        .testimonial-dot {
-            width: 12px;
-            height: 12px;
-            background: #ddd;
-            border-radius: 50%;
-            margin: 0 5px;
-            cursor: pointer;
-            transition: background 0.3s ease;
-        }
-        
-        .testimonial-dot.active {
-            background: #c8a97e;
-        }
-        
-        /* Benefits Section */
-        .benefits {
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(10px);
-        }
-        
-        .benefits-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-        }
-        
-        .benefit-card {
-            text-align: center;
-            padding: 30px;
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s ease;
-        }
-        
-        .benefit-card:hover {
-            transform: translateY(-5px);
-        }
-        
-        .benefit-icon {
-            width: 70px;
-            height: 70px;
-            background: #f5f2eb;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 20px;
-            color: #c8a97e;
-            font-size: 28px;
-        }
-        
-        /* Contact Section */
         .contact-container {
             display: flex;
-            flex-wrap: wrap;
+            flex-direction: column;
             gap: 40px;
         }
         
         .contact-info {
             flex: 1;
-            min-width: 300px;
+        }
+        
+        .contact-info h3 {
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+            color: var(--hive-dark);
         }
         
         .contact-form {
             flex: 1;
-            min-width: 300px;
         }
         
         .info-item {
@@ -481,182 +502,214 @@
         }
         
         .info-icon {
-            width: 50px;
-            height: 50px;
-            background: #f5f2eb;
+            width: 45px;
+            height: 45px;
+            background: var(--hive-primary);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
+            color: white;
+            font-size: 1.1rem;
             margin-right: 15px;
-            color: #c8a97e;
-            font-size: 20px;
+            flex-shrink: 0;
+        }
+        
+        .info-item div h4 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
         }
         
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
         
-        .form-group label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: 500;
-        }
-        
-        .form-group input,
-        .form-group textarea,
-        .form-group select {
+        .form-control {
             width: 100%;
-            padding: 12px;
+            padding: 12px 15px;
             border: 1px solid #ddd;
             border-radius: 5px;
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
         }
         
-        .form-group textarea {
-            min-height: 150px;
+        textarea.form-control {
+            min-height: 120px;
             resize: vertical;
         }
         
-        /* Footer */
+        /* Footer - Mobile Optimized */
         footer {
-            background: #3a6c65;
+            background: var(--hive-dark);
             color: white;
-            padding: 60px 0 30px;
+            padding: 50px 0 20px;
         }
         
-        .footer-container {
+        .footer-content {
             display: flex;
-            flex-wrap: wrap;
-            gap: 40px;
-            margin-bottom: 40px;
+            flex-direction: column;
+            gap: 30px;
+            margin-bottom: 30px;
         }
         
-        .footer-col {
+        .footer-column {
             flex: 1;
-            min-width: 200px;
         }
         
-        .footer-col h3 {
-            color: white;
-            margin-bottom: 20px;
-            font-size: 1.5rem;
+        .footer-title {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            position: relative;
         }
         
-        .footer-col ul {
+        .footer-title:after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 35px;
+            height: 3px;
+            background: var(--hive-primary);
+        }
+        
+        .footer-links {
             list-style: none;
-            padding: 0;
         }
         
-        .footer-col ul li {
-            margin-bottom: 10px;
+        .footer-links li {
+            margin-bottom: 8px;
         }
         
-        .footer-col ul li a {
-            color: #ddd;
+        .footer-links a {
+            color: #CCC;
             text-decoration: none;
-            transition: color 0.3s ease;
-        }
-        
-        .footer-col ul li a:hover {
-            color: #c8a97e;
-        }
-        
-        .social-links {
-            display: flex;
-            gap: 15px;
-        }
-        
-        .social-links a {
-            display: inline-block;
-            width: 40px;
-            height: 40px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            color: white;
-            text-align: center;
-            line-height: 40px;
             transition: all 0.3s ease;
+            font-size: 0.95rem;
         }
         
-        .social-links a:hover {
-            background: #c8a97e;
-            transform: translateY(-3px);
+        .footer-links a:hover {
+            color: var(--hive-primary);
+            padding-left: 5px;
         }
         
         .copyright {
             text-align: center;
-            padding-top: 30px;
+            padding-top: 20px;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
-            font-size: 14px;
-            color: #aaa;
+            font-size: 0.85rem;
+            color: #999;
         }
         
-        /* Back to Top */
-        .back-to-top {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 50px;
-            height: 50px;
-            background: #c8a97e;
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-            z-index: 999;
-        }
-        
-        .back-to-top.visible {
-            opacity: 1;
-            visibility: visible;
-        }
-        
-        .back-to-top:hover {
-            background: #3a6c65;
-        }
-        
-        /* Responsive Design */
+        /* Mobile Responsive Design */
         @media (max-width: 768px) {
             .menu-toggle {
-                display: block;
+                display: flex;
             }
             
-            nav {
+            .nav-links {
                 position: fixed;
-                top: 80px;
+                top: 60px;
                 left: -100%;
-                width: 80%;
-                height: calc(100vh - 80px);
+                width: 100%;
+                height: calc(100vh - 60px);
                 background: white;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
                 transition: all 0.3s ease;
-                box-shadow: 5px 0 10px rgba(0, 0, 0, 0.1);
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
             }
             
-            nav.active {
+            .nav-links.active {
                 left: 0;
             }
             
-            nav ul {
-                flex-direction: column;
-                padding: 30px;
-            }
-            
-            nav ul li {
+            .nav-links li {
                 margin: 15px 0;
             }
             
-            .hero h1 {
-                font-size: 2.5rem;
+            .hero-title {
+                font-size: 1.8rem;
             }
             
-            .section-title h2 {
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+            
+            .hero-btn {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+            
+            .section-title {
+                font-size: 1.6rem;
+            }
+            
+            .tab-btn {
+                padding: 10px 15px;
+                font-size: 0.9rem;
+            }
+            
+            .service-icon {
+                height: 80px;
                 font-size: 2rem;
+            }
+            
+            .service-content {
+                padding: 15px;
+            }
+            
+            .service-title {
+                font-size: 1.1rem;
+            }
+            
+            .info-item {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .info-icon {
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+        }
+        
+        @media (min-width: 768px) {
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .about-content {
+                flex-direction: row;
+                gap: 50px;
+            }
+            
+            .contact-container {
+                flex-direction: row;
+                gap: 50px;
+            }
+            
+            .footer-content {
+                flex-direction: row;
+                gap: 40px;
+            }
+        }
+        
+        @media (min-width: 992px) {
+            .hero-title {
+                font-size: 3rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.3rem;
+            }
+            
+            .services-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+            
+            .nav-links li {
+                margin: 0 15px;
             }
         }
     </style>
@@ -665,211 +718,231 @@
     <!-- Header & Navigation -->
     <header>
         <div class="container header-container">
-            <a href="#" class="logo">Seraphic Touch</a>
-            <div class="menu-toggle">
-                <i class="fas fa-bars"></i>
+            <div class="logo">
+                <div class="logo-text">Innova<span>Hive</span></div>
             </div>
-            <nav>
-                <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#benefits">Benefits</a></li>
-                    <li><a href="#testimonials">Testimonials</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
+            
+            <div class="menu-toggle" id="mobile-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <a href="#contact" class="cta-button">Get Started</a>
         </div>
     </header>
 
     <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <h1>Find Your Inner Peace</h1>
-            <p>Experience the ultimate in relaxation and rejuvenation at our luxury spa retreat</p>
-            <a href="#contact" class="btn">Book Now</a>
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Building Digital Experiences.<br>Powering AI Innovation.</h1>
+                <p class="hero-subtitle">From websites to AI agents, we craft solutions that make businesses smarter.</p>
+                <div class="hero-buttons">
+                    <a href="#hive-services" class="hero-btn btn-hive"><i class="fas fa-rocket"></i> Explore Hive</a>
+                    <a href="#minds-services" class="hero-btn btn-minds"><i class="fas fa-robot"></i> Explore Minds</a>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- About Section -->
-    <section id="about" class="about">
+    <section class="about" id="about">
         <div class="container">
-            <div class="section-title">
-                <h2>About Our Spa</h2>
-            </div>
+            <h2 class="section-title">About Innova Hive</h2>
             <div class="about-content">
                 <div class="about-text">
-                    <h3>A Sanctuary for the Senses</h3>
-                    <p>Welcome to Tranquil Spa, where we provide a holistic approach to wellness and relaxation. Our serene environment is designed to transport you from the stresses of daily life to a state of complete bliss.</p>
-                    <p>Founded in 2010, our spa combines ancient healing traditions with modern techniques to deliver exceptional treatments tailored to your individual needs.</p>
-                    <p>Our team of experienced therapists is dedicated to providing you with an unforgettable experience that will leave you feeling refreshed, renewed, and revitalized.</p>
-                    <a href="#services" class="btn">Explore Our Services</a>
+                    <h3>Student-Driven Innovation</h3>
+                    <p>Founded by passionate engineering students, Innova Hive bridges the gap between cutting-edge software development and AI innovation. We bring fresh perspectives and the latest academic knowledge to real-world business challenges.</p>
+                    <p>Our journey began in college labs and hackathons, where we developed award-winning solutions. Today, we've transformed that experience into a full-service digital agency that delivers professional results with the energy and innovation only students can provide.</p>
+                    <p>We believe in the power of technology to transform businesses and are committed to delivering solutions that are not just functional but revolutionary.</p>
                 </div>
                 <div class="about-image">
-                    <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80" alt="Spa Interior">
+                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=80" alt="Innova Hive Team">
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Services Section -->
-    <section id="services" class="services">
+    <section class="services" id="services">
         <div class="container">
-            <div class="section-title">
-                <h2>Our Services</h2>
+            <h2 class="section-title">Our Services</h2>
+            <div class="services-tabs">
+                <button class="tab-btn active" data-tab="hive-services">
+                    <i class="fas fa-hive"></i> Innova Hive
+                </button>
+                <button class="tab-btn" data-tab="minds-services">
+                    <i class="fas fa-brain"></i> Inova Minds
+                </button>
             </div>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-image">
-                        <img src="massage.webp" alt="Massage Therapy">
+            
+            <div class="services-grid" id="hive-services">
+                <div class="service-card hive-service">
+                    <div class="service-icon">
+                        <i class="fas fa-mobile-alt"></i>
                     </div>
                     <div class="service-content">
-                        <h3>Massage Therapy</h3>
-                        <p>Our therapeutic massages are designed to relieve tension, reduce stress, and promote overall wellness. Choose from Swedish, deep tissue, hot stone, or aromatherapy massage.</p>
-                        <p class="price">From $85</p>
-                        <a href="#contact" class="btn">Book Now</a>
+                        <h3 class="service-title">App Development</h3>
+                        <p>We create responsive, user-friendly mobile applications for iOS and Android that deliver exceptional user experiences.</p>
                     </div>
                 </div>
                 
-                <div class="service-card">
-                    <div class="service-image">
-                        <img src="facial.png" alt="Facials">
+                <div class="service-card hive-service">
+                    <div class="service-icon">
+                        <i class="fas fa-laptop-code"></i>
                     </div>
                     <div class="service-content">
-                        <h3>Facials & Skincare</h3>
-                        <p>Rejuvenate your skin with our customized facials using premium organic products. Our treatments address various skin concerns and leave your skin glowing.</p>
-                        <p class="price">From $75</p>
-                        <a href="#contact" class="btn">Book Now</a>
+                        <h3 class="service-title">Website Development</h3>
+                        <p>From corporate websites to e-commerce platforms, we build responsive, SEO-friendly websites that convert visitors into customers.</p>
                     </div>
                 </div>
                 
-                <div class="service-card">
-                    <div class="service-image">
-                        <img src="treatments.png" alt="Body Treatments">
+                <div class="service-card hive-service">
+                    <div class="service-icon">
+                        <i class="fas fa-search"></i>
                     </div>
                     <div class="service-content">
-                        <h3>Body Treatments</h3>
-                        <p>Indulge in our luxurious body wraps and scrubs that will leave your skin silky smooth. Our treatments detoxify, hydrate, and revitalize your body.</p>
-                        <p class="price">From $95</p>
-                        <a href="#contact" class="btn">Book Now</a>
+                        <h3 class="service-title">SEO Optimization</h3>
+                        <p>Our SEO experts help your business rank higher in search results, driving organic traffic and increasing visibility.</p>
+                    </div>
+                </div>
+                
+                <div class="service-card hive-service">
+                    <div class="service-icon">
+                        <i class="fas fa-server"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-title">Domain Hosting</h3>
+                        <p>Reliable, secure, and scalable hosting solutions with 99.9% uptime guarantee and 24/7 technical support.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="services-grid" id="minds-services" style="display: none;">
+                <div class="service-card minds-service">
+                    <div class="service-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-title">Machine Learning</h3>
+                        <p>We develop custom ML models that help businesses predict trends, analyze data, and make informed decisions.</p>
+                    </div>
+                </div>
+                
+                <div class="service-card minds-service">
+                    <div class="service-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-title">Chatbots & AI Agents</h3>
+                        <p>Intelligent chatbot solutions that provide 24/7 customer support, lead generation, and personalized user experiences.</p>
+                    </div>
+                </div>
+                
+                <div class="service-card minds-service">
+                    <div class="service-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-title">Business Automation</h3>
+                        <p>Streamline your operations with custom automation solutions that reduce manual work and increase efficiency.</p>
+                    </div>
+                </div>
+                
+                <div class="service-card minds-service">
+                    <div class="service-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-title">Data Analytics</h3>
+                        <p>Transform your raw data into actionable insights with powerful visualization and predictive analytics tools.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
-    <!-- Benefits Section -->
-    <section id="benefits" class="benefits">
-        <div class="container">
-            <div class="section-title">
-                <h2>Spa Benefits</h2>
-            </div>
-            <div class="benefits-grid">
-                <div class="benefit-card">
-                    <div class="benefit-icon">
-                        <i class="fas fa-heart"></i>
-                    </div>
-                    <h3>Stress Relief</h3>
-                    <p>Our treatments lower cortisol levels and promote deep relaxation for both mind and body.</p>
-                </div>
-                
-                <div class="benefit-card">
-                    <div class="benefit-icon">
-                        <i class="fas fa-spa"></i>
-                    </div>
-                    <h3>Improved Circulation</h3>
-                    <p>Massage and hydrotherapy stimulate blood flow, delivering oxygen throughout your body.</p>
-                </div>
-                
-                <div class="benefit-card">
-                    <div class="benefit-icon">
-                        <i class="fas fa-bed"></i>
-                    </div>
-                    <h3>Better Sleep</h3>
-                    <p>Relaxation treatments help regulate sleep patterns and improve sleep quality.</p>
-                </div>
-                
-                <div class="benefit-card">
-                    <div class="benefit-icon">
-                        <i class="fas fa-smile"></i>
-                    </div>
-                    <h3>Mood Enhancement</h3>
-                    <p>Spa therapies release endorphins, reducing anxiety and elevating your mood.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-   
 
     <!-- Contact Section -->
-    <section id="contact" class="contact">
+    <section class="contact" id="contact">
         <div class="container">
-            <div class="section-title">
-                <h2>Contact Us</h2>
-            </div>
+            <h2 class="section-title">Get In Touch</h2>
             <div class="contact-container">
                 <div class="contact-info">
-                    <h3>Get In Touch</h3>
-                    <div class="info-item">
-                        <div class="info-icon">
-                            <i class="fas fa-map-marker-alt"></i>
-                        </div>
-                        <p>123 Wellness Avenue, Tranquil City, TC 12345</p>
-                    </div>
+                    <h3>Let's Build Something Amazing Together</h3>
+                    <p>Have a project in mind? Want to discuss how our services can help your business? Reach out to us through any of the following channels:</p>
                     
                     <div class="info-item">
                         <div class="info-icon">
                             <i class="fas fa-phone"></i>
                         </div>
-                        <p>(555) 123-4567</p>
+                        <div>
+                            <h4>Phone</h4>
+                            <p>+91 94428 02796</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <h4>Address</h4>
+                            <p>Coimbatore, India</p>
+                        </div>
                     </div>
                     
                     <div class="info-item">
                         <div class="info-icon">
                             <i class="fas fa-envelope"></i>
                         </div>
-                        <p>info@tranquilspa.com</p>
-                    </div>
-                    
-                    <div class="info-item">
-                        <div class="info-icon">
-                            <i class="fas fa-clock"></i>
+                        <div>
+                            <h4>Email</h4>
+                            <p>jayaragul.in@gmail.com</p>
                         </div>
-                        <p>Monday - Saturday: 9am - 8pm<br>Sunday: 10am - 6pm</p>
                     </div>
                 </div>
                 
                 <div class="contact-form">
-                    <h3>Book an Appointment</h3>
-                    <form>
-                        <div class="form-group">
-                            <label for="name">Your Name</label>
-                            <input type="text" id="name" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="email">Your Email</label>
-                            <input type="email" id="email" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="service">Service Interested In</label>
-                            <select id="service">
-                                <option value="">Select a service</option>
-                                <option value="massage">Massage Therapy</option>
-                                <option value="facial">Facials & Skincare</option>
-                                <option value="body">Body Treatments</option>
-                            </select>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="message">Your Message</label>
-                            <textarea id="message" required></textarea>
-                        </div>
-                        
-                        <button type="submit" class="btn">Send Message</button>
-                    </form>
+                    <div class="contact-form">
+    <!-- Replace YOUR_EMAIL@gmail.com with your actual Gmail address -->
+    <form action="https://formsubmit.co/jayaragul123@gmail.com" method="POST">
+        <!-- FormSubmit configuration -->
+        <input type="hidden" name="_subject" value="New inquiry from Innova Hive website">
+        <input type="hidden" name="_template" value="table">
+        
+        
+        <div class="form-group">
+            <input type="text" name="name" class="form-control" placeholder="Your Name" required>
+        </div>
+        <div class="form-group">
+            <input type="email" name="email" class="form-control" placeholder="Your Email" required>
+        </div>
+        <div class="form-group">
+            <select name="service" class="form-control" required>
+                <option value="" disabled selected>Service Interested In</option>
+                <option value="app-development">App Development</option>
+                <option value="web-development">Website Development</option>
+                <option value="seo">SEO Optimization</option>
+                <option value="hosting">Domain Hosting</option>
+                <option value="ml">Machine Learning</option>
+                <option value="chatbots">Chatbots & AI Agents</option>
+                <option value="automation">Business Automation</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <textarea name="message" class="form-control" placeholder="Your Message" required></textarea>
+        </div>
+        <button type="submit" class="cta-button">Send Message</button>
+    </form>
+</div>
                 </div>
             </div>
         </div>
@@ -878,141 +951,113 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <div class="footer-container">
-                <div class="footer-col">
-                    <h3>Tranquil Spa</h3>
-                    <p>Your oasis of calm and rejuvenation in the heart of the city.</p>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-pinterest"></i></a>
-                    </div>
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3 class="footer-title">Innova Hive</h3>
+                    <p>Building digital experiences and powering AI innovation with student-driven passion and expertise.</p>
                 </div>
                 
-                <div class="footer-col">
-                    <h3>Quick Links</h3>
-                    <ul>
+                <div class="footer-column">
+                    <h3 class="footer-title">Quick Links</h3>
+                    <ul class="footer-links">
                         <li><a href="#home">Home</a></li>
-                        <li><a href="#about">About</a></li>
+                        <li><a href="#about">About Us</a></li>
                         <li><a href="#services">Services</a></li>
-                        <li><a href="#benefits">Benefits</a></li>
+                        <li><a href="#portfolio">Portfolio</a></li>
                         <li><a href="#contact">Contact</a></li>
                     </ul>
                 </div>
                 
-                <div class="footer-col">
-                    <h3>Services</h3>
-                    <ul>
-                        <li><a href="#">Massage Therapy</a></li>
-                        <li><a href="#">Facials & Skincare</a></li>
-                        <li><a href="#">Body Treatments</a></li>
-                        <li><a href="#">Aromatherapy</a></li>
-                        <li><a href="#">Couples Treatments</a></li>
+                <div class="footer-column">
+                    <h3 class="footer-title">Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="#hive-services">App Development</a></li>
+                        <li><a href="#hive-services">Website Development</a></li>
+                        <li><a href="#hive-services">SEO Optimization</a></li>
+                        <li><a href="#minds-services">Machine Learning</a></li>
+                        <li><a href="#minds-services">Chatbots & AI</a></li>
                     </ul>
                 </div>
                 
-                <div class="footer-col">
-                    <h3>Newsletter</h3>
-                    <p>Subscribe to our newsletter for special offers and updates.</p>
-                    <form>
-                        <div class="form-group">
-                            <input type="email" placeholder="Your Email" required>
-                        </div>
-                        <button type="submit" class="btn">Subscribe</button>
-                    </form>
-                </div>
-            </div>
+               
             
             <div class="copyright">
-                <p>&copy; 2023 Tranquil Spa. All rights reserved.</p>
+                <p>&copy; 2023 Innova Hive. All Rights Reserved. | Student-Driven Digital Solutions</p>
             </div>
         </div>
     </footer>
 
-    <!-- Back to Top Button -->
-    <a href="#" class="back-to-top">
-        <i class="fas fa-arrow-up"></i>
-    </a>
-
     <script>
-        // Menu Toggle
-        const menuToggle = document.querySelector('.menu-toggle');
-        const nav = document.querySelector('nav');
+        // Mobile Menu Toggle
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navLinks = document.getElementById('nav-links');
         
-        menuToggle.addEventListener('click', () => {
-            nav.classList.toggle('active');
+        mobileMenu.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
         });
         
-        // Smooth Scrolling
+        // Close mobile menu when clicking on links
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                mobileMenu.classList.remove('active');
+            });
+        });
+        
+        // Services Tab Functionality
+        const tabButtons = document.querySelectorAll('.tab-btn');
+        const hiveServices = document.getElementById('hive-services');
+        const mindsServices = document.getElementById('minds-services');
+        
+        tabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                tabButtons.forEach(btn => btn.classList.remove('active'));
+                
+                // Add active class to clicked button
+                button.classList.add('active');
+                
+                // Show the corresponding services
+                if (button.dataset.tab === 'hive-services') {
+                    hiveServices.style.display = 'grid';
+                    mindsServices.style.display = 'none';
+                } else {
+                    hiveServices.style.display = 'none';
+                    mindsServices.style.display = 'grid';
+                }
+            });
+        });
+        
+        // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
                 
                 const targetId = this.getAttribute('href');
-                if(targetId === '#') return;
+                if (targetId === '#') return;
                 
                 const targetElement = document.querySelector(targetId);
-                if(targetElement) {
+                if (targetElement) {
                     window.scrollTo({
                         top: targetElement.offsetTop - 80,
                         behavior: 'smooth'
                     });
-                    
-                    // Close mobile menu if open
-                    nav.classList.remove('active');
                 }
             });
         });
         
-        // Header Scroll Effect
-        const header = document.querySelector('header');
-        
+        // Header background change on scroll
         window.addEventListener('scroll', () => {
-            if(window.scrollY > 100) {
-                header.classList.add('scrolled');
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+                header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
             } else {
-                header.classList.remove('scrolled');
-            }
-            
-            // Back to top button visibility
-            const backToTop = document.querySelector('.back-to-top');
-            if(window.scrollY > 500) {
-                backToTop.classList.add('visible');
-            } else {
-                backToTop.classList.remove('visible');
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+                header.style.boxShadow = 'none';
             }
         });
-        
-        // Testimonial Slider
-        const testimonialDots = document.querySelectorAll('.testimonial-dot');
-        const testimonials = document.querySelectorAll('.testimonial');
-        
-        testimonialDots.forEach(dot => {
-            dot.addEventListener('click', () => {
-                const index = dot.getAttribute('data-index');
-                
-                // Update active testimonial
-                testimonials.forEach(testimonial => testimonial.classList.remove('active'));
-                testimonials[index].classList.add('active');
-                
-                // Update active dot
-                testimonialDots.forEach(d => d.classList.remove('active'));
-                dot.classList.add('active');
-            });
-        });
-        
-        // Auto rotate testimonials
-        let testimonialIndex = 0;
-        setInterval(() => {
-            testimonialIndex = (testimonialIndex + 1) % testimonials.length;
-            
-            testimonials.forEach(testimonial => testimonial.classList.remove('active'));
-            testimonials[testimonialIndex].classList.add('active');
-            
-            testimonialDots.forEach(dot => dot.classList.remove('active'));
-            testimonialDots[testimonialIndex].classList.add('active');
-        }, 5000);
     </script>
 </body>
 </html>
